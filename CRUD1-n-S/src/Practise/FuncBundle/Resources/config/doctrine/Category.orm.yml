@@ -1,0 +1,35 @@
+Practise\FuncBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: Practise\FuncBundle\Entity\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+        position:
+            type: integer
+            unique: true
+    oneToMany:
+        categories:
+            targetEntity: Category
+            mappedBy: category
+        products:
+            targetEntity: Product
+            mappedBy: category
+    manyToOne:
+        category:
+            targetEntity: Category
+            inversedBy: categories
+            joinColumn:
+                name: category_id
+                referencedColumnName: id           
+    lifecycleCallbacks: {  }

@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block pagename %}
+<h2>Product Create</h2>
+{% endblock %}
+{% block body %}
+
+{{ form_start(form) }}
+
+<div> 
+    <div>        
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}        
+    </div>
+    <div>
+        {{ form_label(form.sku) }}
+        {{ form_widget(form.sku) }}
+    </div>
+    <div>
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description) }}
+    </div>
+    <div>
+        {{ form_label(form.price) }}
+        {{ form_widget(form.price) }}
+    </div>
+    {% if form.category is defined %}
+    <div>
+        {{ form_label(form.category) }}
+        {{ form_widget(form.category) }}
+    </div>
+    {% endif %}
+    <div>
+        {{ form_widget(form.save) }}
+    </div>
+</div>
+
+{{ form_rest(form) }}
+
+{{ form_end(form) }}
+
+{% endblock %}
